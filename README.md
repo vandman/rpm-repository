@@ -25,7 +25,7 @@ Access to a repository containing packages, likely on the internet.
 
 releasever => CentOS version  
 basearch => needed architecture (only one per line)  
-repo => all default repo that follow this link http://vault.centos.org/{{ releasever }}/{{ repo }}/{{ basearch }}  
+repo => all vault_repotosync repo follow this link http://vault.centos.org/{{ releasever }}/{{ repo }}/{{ basearch }} structure  
 key => this is needed because sometimes it like RPM-GPG-KEY-CentOS-3 ans sometimes like RPM-GPG-KEY-centos3, need te be specified 
 
 ---
@@ -42,7 +42,7 @@ key => this is needed because sometimes it like RPM-GPG-KEY-CentOS-3 ans sometim
 
 releasever => CentOS version  
 basearch => needed architecture (only one per line)  
-repo => all default repo that follow this link http://vault.centos.org/{{ releasever }}/{{ repo.name }}/{{ basearch }}/{{ repo.sub }}  
+repo => all vault_repotosync_extra repo follow this link http://vault.centos.org/{{ releasever }}/{{ repo.name }}/{{ basearch }}/{{ repo.sub }} structure  
 
 ---
     epel_repotosync:
