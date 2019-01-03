@@ -1,5 +1,6 @@
 ---
-- blockinfile:
+- name: "insert update CentOS yum file with extra repo"
+  blockinfile:
     path: "/etc/yum.repos.d/centos_{{ item.releasever }}_{{ item.basearch }}.repo"
     block: |
       [{{ vre.name }}-{{ vre.sub }}-centos-{{ item.releasever }}]
