@@ -36,6 +36,7 @@
   become: yes
   become_method: sudo
   with_items: "{{ vault_repotosync }}"
+  when: vault_repotosync is defined and vault_repotosync not empty
   loop_control:
     label: "Key for CentOS {{ item.releasever }}"
 
@@ -49,12 +50,14 @@
   become: yes
   become_method: sudo
   with_items: "{{ vault_repotosync }}"
+  when: vault_repotosync is defined and vault_repotosync not empty
   loop_control:
     label: "For CentOS {{ item.releasever }} {{ item.basearch }}"
 
 - name: "include task for extra repo"
   include_tasks: centos_extra_repo.yml
   with_items: "{{ vault_repotosync_extra }}"
+  when: vault_repotosync_extra is defined and vault_repotosync_extra not empty
   loop_control:
     label: "For CentOS {{ item.releasever }} {{ item.basearch }}"
 
@@ -65,6 +68,7 @@
   become: yes
   become_method: sudo
   with_items: "{{ epel_repotosync }}"
+  when: epel_repotosync is defined and epel_repotosync not empty
   loop_control:
     label: "Key for EPEL CentOS {{ item.releasever }} {{ item.basearch }}"
 
@@ -78,6 +82,7 @@
   become: yes
   become_method: sudo
   with_items: "{{ epel_repotosync }}"
+  when: epel_repotosync is defined and epel_repotosync not empty
   loop_control:
     label: "For EPEL CentOS {{ item.releasever }} {{ item.basearch }}"
 
@@ -88,6 +93,7 @@
   become: yes
   become_method: sudo
   with_items: "{{ pgdp_repotosync }}"
+  when: pgdp_repotosync is defined and pgdp_repotosync not empty
   loop_control:
     label: "Key for PGDG {{ item.pgdg }} CentOS {{ item.releasever }} {{ item.basearch }}"
 
@@ -101,6 +107,7 @@
   become: yes
   become_method: sudo
   with_items: "{{ pgdp_repotosync }}"
+  when: pgdp_repotosync is defined and pgdp_repotosync not empty
   loop_control:
     label: "For PGDG {{ item.pgdg }} CentOS {{ item.releasever }} {{ item.basearch }}"
 
@@ -110,6 +117,7 @@
     dest: "/etc/pki/rpm-gpg/RPM-GPG-KEY-remi"
   become: yes
   become_method: sudo
+  when: remi_repotosync is defined and remi_repotosync not empty
 
 - name: "Create CentOS remi yum file"
   template:
@@ -121,6 +129,7 @@
   become: yes
   become_method: sudo
   with_items: "{{ remi_repotosync }}"
+  when: remi_repotosync is defined and remi_repotosync not empty
   loop_control:
     label: "For remi {{ item.repo }} CentOS {{ item.releasever }} {{ item.basearch }}"
 
@@ -130,6 +139,7 @@
     dest: "/etc/pki/rpm-gpg/RPM-GPG-KEY-ius"
   become: yes
   become_method: sudo
+  when: ius_repotosync is defined and ius_repotosync not empty
 
 - name: "Create CentOS ius yum file"
   template:
@@ -141,6 +151,7 @@
   become: yes
   become_method: sudo
   with_items: "{{ ius_repotosync }}"
+  when: ius_repotosync is defined and ius_repotosync not empty
   loop_control:
     label: "For ius {{ item.repo }} CentOS {{ item.releasever }} {{ item.basearch }}"
 
@@ -150,6 +161,7 @@
     dest: "/etc/pki/rpm-gpg/RPM-GPG-KEY-LemonLDAP"
   become: yes
   become_method: sudo
+  when: lemonldap_repotosync is defined and lemonldap_repotosync not empty
 
 - name: "Create CentOS LemonLDAP yum file"
   template:
@@ -161,6 +173,7 @@
   become: yes
   become_method: sudo
   with_items: "{{ lemonldap_repotosync }}"
+  when: lemonldap_repotosync is defined and lemonldap_repotosync not empty
   loop_control:
     label: "For LemonLDAP {{ item.repo }} CentOS {{ item.releasever }}"
 
@@ -173,7 +186,7 @@
     mode: 0644
   become: yes
   become_method: sudo
-  when: item.extra == 'OK'
+  when: lemonldap_repotosync is defined and lemonldap_repotosync not empty and item.extra == 'OK'
   with_items: "{{ lemonldap_repotosync }}"
   loop_control:
     label: "For LemonLDAP Extra {{ item.repo }} CentOS {{ item.releasever }}"
