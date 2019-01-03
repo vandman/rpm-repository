@@ -11,7 +11,7 @@ Access to a repository containing packages, likely on the internet.
 Role Variables
 --------------
 
-# Where to store downloaded files
+#Where to store downloaded files
 cachedir: /var/cache/yum
 
 #CentOS repo are sync from http://vault.centos.org/
