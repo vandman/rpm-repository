@@ -54,7 +54,7 @@
   loop_control:
     label: "For CentOS {{ item.releasever }} {{ item.basearch }}"
 
-- name: "insert update CentOS yum file with extra repo"
+- name: "include task for extra repo"
   include_tasks: centos_extra_repo.yml
   with_items: "{{ vault_repotosync_extra }}"
   loop_control:
