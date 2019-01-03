@@ -5,8 +5,6 @@
   package:
     name: ['yum', 'yum-utils']
     state: present
-  retries: 2
-  delay: 5
   become: yes
   become_method: sudo
   when: ansible_os_family == 'RedHat'
@@ -15,8 +13,6 @@
   apt:
     name: ['yum', 'yum-utils']
     state: present
-  retries: 2
-  delay: 5
   become: yes
   become_method: sudo
   when: ansible_os_family == 'Debian'
