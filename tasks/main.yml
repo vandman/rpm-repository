@@ -1,0 +1,179 @@
+---
+# tasks file for repo-centos
+
+- name: install ['yum', 'yum-utils'] on CentOS
+  package:
+    name: ['yum', 'yum-utils']
+    state: present
+  become: yes
+  become_method: sudo
+  when: ansible_os_family == 'RedHat'
+
+- name: install ['yum', 'yum-utils'] on Debian
+  apt:
+    name: ['yum', 'yum-utils']
+    state: present
+  become: yes
+  become_method: sudo
+  when: ansible_os_family == 'Debian'
+
+- name: "Make sure {{ item }} directory exist"
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0755
+  become: yes
+  become_method: sudo
+  with_items:
+    - /etc/pki/
+    - /etc/yum.repos.d/
+  when: ansible_os_family == 'Debian'
+
+- name: Download RPM-GPG-KEY files for CentOS
+  get_url:
+    url: "http://vault.centos.org/{{ item.releasever }}/os/{{ item.basearch }}/{{ item.key }}"
+    dest: "/etc/pki/rpm-gpg/RPM-GPG-KEY-centos{{ item.releasever }}"
+  become: yes
+  become_method: sudo
+  with_items: "{{ vault_repotosync }}"
+  loop_control:
+    label: "Key for CentOS {{ item.releasever }}"
+
+- name: "Create CentOS yum file"
+  template:
+    src: "centos"
+    dest: "/etc/yum.repos.d/centos_{{ item.releasever }}_{{ item.basearch }}.repo"
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+  become_method: sudo
+  with_items: "{{ vault_repotosync }}"
+  loop_control:
+    label: "For CentOS {{ item.releasever }} {{ item.basearch }}"
+
+- name: "insert update CentOS yum file with extra repo"
+  include_tasks: centos_extra_repo.yml
+  with_items: "{{ vault_repotosync_extra }}"
+  loop_control:
+    label: "For CentOS {{ item.releasever }} {{ item.basearch }}"
+
+- name: Download RPM-GPG-KEY files for EPEL
+  get_url:
+    url: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ item.releasever }}"
+    dest: "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ item.releasever }}"
+  become: yes
+  become_method: sudo
+  with_items: "{{ epel_repotosync }}"
+  loop_control:
+    label: "Key for EPEL CentOS {{ item.releasever }} {{ item.basearch }}"
+
+- name: "Create CentOS EPEL yum file"
+  template:
+    src: "epel/centos"
+    dest: "/etc/yum.repos.d/epel_centos_{{ item.releasever }}_{{ item.basearch }}.repo"
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+  become_method: sudo
+  with_items: "{{ epel_repotosync }}"
+  loop_control:
+    label: "For EPEL CentOS {{ item.releasever }} {{ item.basearch }}"
+
+- name: Download RPM-GPG-KEY files for PGDG
+  get_url:
+    url: "https://download.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-{{ item.pgdgsh }}"
+    dest: "/etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-{{ item.pgdgsh }}"
+  become: yes
+  become_method: sudo
+  with_items: "{{ pgdp_repotosync }}"
+  loop_control:
+    label: "Key for PGDG {{item.pgdg}} CentOS {{ item.releasever }} {{ item.basearch }}"
+
+- name: "Create CentOS PGDG yum file"
+  template:
+    src: "pgdg/centos"
+    dest: "/etc/yum.repos.d/pgdg_{{item.pgdg}}_centos_{{ item.releasever }}_{{ item.basearch }}.repo"
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+  become_method: sudo
+  with_items: "{{ pgdp_repotosync }}"
+  loop_control:
+    label: "For PGDG {{ item.pgdg }} CentOS {{ item.releasever }} {{ item.basearch }}"
+
+- name: Download RPM-GPG-KEY file for remi
+  get_url:
+    url: "https://rpms.remirepo.net/RPM-GPG-KEY-remi"
+    dest: "/etc/pki/rpm-gpg/RPM-GPG-KEY-remi"
+  become: yes
+  become_method: sudo
+
+- name: "Create CentOS remi yum file"
+  template:
+    src: "remi/remi{{ item.releasever }}/remi-{{ item.repo }}.repo"
+    dest: "/etc/yum.repos.d/remi_{{ item.repo }}_centos_{{ item.releasever }}_{{ item.basearch }}.repo"
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+  become_method: sudo
+  with_items: "{{ remi_repotosync }}"
+  loop_control:
+    label: "For remi {{ item.repo }} CentOS {{ item.releasever }} {{ item.basearch }}"
+
+- name: Download RPM-GPG-KEY file for ius
+  get_url:
+    url: "https://dl.iuscommunity.org/pub/ius/IUS-COMMUNITY-GPG-KEY"
+    dest: "/etc/pki/rpm-gpg/RPM-GPG-KEY-ius"
+  become: yes
+  become_method: sudo
+
+- name: "Create CentOS ius yum file"
+  template:
+    src: "ius/ius-{{ item.repo }}.repo"
+    dest: "/etc/yum.repos.d/ius_{{ item.repo }}_centos_{{ item.releasever }}_{{ item.basearch }}.repo"
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+  become_method: sudo
+  with_items: "{{ ius_repotosync }}"
+  loop_control:
+    label: "For ius {{ item.repo }} CentOS {{ item.releasever }} {{ item.basearch }}"
+
+- name: Download RPM-GPG-KEY file for LemonLDAP
+  get_url:
+    url: "https://lemonldap-ng.org/_media/rpm-gpg-key-ow2"
+    dest: "/etc/pki/rpm-gpg/RPM-GPG-KEY-LemonLDAP"
+  become: yes
+  become_method: sudo
+
+- name: "Create CentOS LemonLDAP yum file"
+  template:
+    src: "lemon-ldap/lemonldap"
+    dest: "/etc/yum.repos.d/lemonldap_{{ item.repo }}_centos{{ item.releasever }}.repo"
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+  become_method: sudo
+  with_items: "{{ lemonldap_repotosync }}"
+  loop_control:
+    label: "For LemonLDAP {{ item.repo }} CentOS {{ item.releasever }}"
+
+- name: "Create CentOS LemonLDAP extra yum file"
+  template:
+    src: "lemon-ldap/lemonldap_extra"
+    dest: "/etc/yum.repos.d/lemonldap_extra_centos{{ item.releasever }}.repo"
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+  become_method: sudo
+  when: item.extra == 'OK'
+  with_items: "{{ lemonldap_repotosync }}"
+  loop_control:
+    label: "For LemonLDAP Extra {{ item.repo }} CentOS {{ item.releasever }}"

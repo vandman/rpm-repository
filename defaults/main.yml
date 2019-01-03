@@ -1,0 +1,580 @@
+---
+# defaults file for repo-centos
+cachedir: /var/cache/yum
+
+#Prior to CentOS 3.7, the reposync command does not work.
+#CentOS 6.10 and 7.5.1810 has been excluded as there are only sources.
+#No contrib between 5.0 and 5.2
+vault_repotosync:
+  # - { releasever: '3.7', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-3'}
+  # - { releasever: '3.8', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-3'}
+  # - { releasever: '3.9', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-3'}
+  # - { releasever: '4.0', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-Centos4'}
+  # - { releasever: '4.1', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-Centos4'}
+  # - { releasever: '4.2', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-Centos4'}
+  # - { releasever: '4.3', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-Centos4'}
+  # - { releasever: '4.4', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-Centos4'}
+  # - { releasever: '4.5', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-Centos4'}
+  # - { releasever: '4.6', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-Centos4'}
+  # - { releasever: '4.7', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-Centos4'}
+  # - { releasever: '4.8', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-Centos4'}
+  # - { releasever: '4.9', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-Centos4'}
+  # - { releasever: '5.0', basearch: 'x86_64', repo: ['addons', 'centosplus', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-5'}
+  # - { releasever: '5.1', basearch: 'x86_64', repo: ['addons', 'centosplus', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-5'}
+  # - { releasever: '5.2', basearch: 'x86_64', repo: ['addons', 'centosplus', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-5'}
+  # - { releasever: '5.3', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-5'}
+  # - { releasever: '5.4', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-5'}
+  # - { releasever: '5.5', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-5'}
+  # - { releasever: '5.6', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-5'}
+  # - { releasever: '5.7', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-5'}
+  # - { releasever: '5.8', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-5'}
+  # - { releasever: '5.9', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-5'}
+  # - { releasever: '5.10', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-5'}
+  # - { releasever: '5.11', basearch: 'x86_64', repo: ['addons', 'centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-5'}
+  # - { releasever: '6.0', basearch: 'x86_64', repo: ['centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-6'}
+  # - { releasever: '6.1', basearch: 'x86_64', repo: ['centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-6'}
+  # - { releasever: '6.2', basearch: 'x86_64', repo: ['centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-6'}
+  # - { releasever: '6.3', basearch: 'x86_64', repo: ['centosplus', 'contrib', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-6'}
+  # - { releasever: '6.4', basearch: 'x86_64', repo: ['centosplus', 'contrib', 'cr', 'extras', 'updates', xen4], key: 'RPM-GPG-KEY-CentOS-6'}
+  # - { releasever: '6.5', basearch: 'x86_64', repo: ['SCL', 'centosplus', 'contrib', 'cr', 'extras', 'updates', 'xen4'], key: 'RPM-GPG-KEY-CentOS-6'}
+  # - { releasever: '6.6', basearch: 'x86_64', repo: ['SCL', 'centosplus', 'contrib', 'cr', 'extras', 'updates', 'xen4'], key: 'RPM-GPG-KEY-CentOS-6'}
+  - { releasever: '6.7', basearch: 'x86_64', repo: ['SCL', 'centosplus', 'contrib', 'cr', 'extras', 'updates', 'xen4'], key: 'RPM-GPG-KEY-CentOS-6'}
+  # - { releasever: '6.8', basearch: 'x86_64', repo: ['centosplus', 'contrib', 'cr', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-6'}
+  # - { releasever: '6.9', basearch: 'x86_64', repo: ['centosplus', 'contrib', 'cr', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-6'}
+  # - { releasever: '7.0.1406', basearch: 'x86_64', repo: ['centosplus', 'cr', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-7'}
+  - { releasever: '7.1.1503', basearch: 'x86_64', repo: ['centosplus', 'cr', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-7'}
+  # - { releasever: '7.2.1511', basearch: 'x86_64', repo: ['centosplus', 'cr', 'extras', 'updates'], key: 'RPM-GPG-KEY-CentOS-7'}
+  # - { releasever: '7.3.1611', basearch: 'x86_64', repo: ['centosplus', 'cr', 'extras', 'opstools', 'rt', 'updates'], key: 'RPM-GPG-KEY-CentOS-7'}
+  # - { releasever: '7.4.1708', basearch: 'x86_64', repo: ['atomic', 'centosplus', 'cr', 'dotnet', 'extras', 'opstools', 'rt', 'updates'], key: 'RPM-GPG-KEY-CentOS-7'}
+  # - { releasever: '7.5.1804', basearch: 'x86_64', repo: ['atomic', 'centosplus', 'cr', 'dotnet', 'extras', 'opstools', 'rt', 'updates'], key: 'RPM-GPG-KEY-CentOS-7'}
+
+vault_repotosync_extra:
+  # - releasever: '6.6'
+  #   basearch: 'x86_64'
+  #   repo:
+  #     - name: 'cloud'
+  #       sub: 'openstack-juno'
+  - releasever: '6.7'
+    basearch: 'x86_64'
+    repo:
+      - name: 'cloud'
+        sub: 'openstack-juno'
+      - name: 'sclo'
+        sub: 'rh'
+      - name: 'sclo'
+        sub: 'sclo'
+      - name: 'storage'
+        sub: 'gluster-3.6'
+      - name: 'storage'
+        sub: 'gluster-3.7'
+      - name: 'virt'
+        sub: 'xen-44'
+      - name: 'virt'
+        sub: 'xen-46'
+      - name: 'virt'
+        sub: 'xen'
+  # - releasever: '6.8'
+  #   basearch: 'x86_64'
+  #   repo:
+  #     - name: 'cloud'
+  #       sub: 'openstack-juno'
+  #     - name: 'sclo'
+  #       sub: 'rh'
+  #     - name: 'sclo'
+  #       sub: 'sclo'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.6'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.7'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.8'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.9'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.10'
+  #     - name: 'virt'
+  #       sub: 'xen-44'
+  #     - name: 'virt'
+  #       sub: 'xen-46'
+  #     - name: 'virt'
+  #       sub: 'xen'
+  # - releasever: '6.9'
+  #   basearch: 'x86_64'
+  #   repo:
+  #     - name: 'cloud'
+  #       sub: 'openstack-juno'
+  #     - name: 'sclo'
+  #       sub: 'rh'
+  #     - name: 'sclo'
+  #       sub: 'sclo'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.6'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.7'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.8'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.9'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.10'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.12'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.13'
+  #     - name: 'storage'
+  #       sub: 'gluster-4.0'
+  #     - name: 'storage'
+  #       sub: 'gluster-4.1'
+  #     - name: 'virt'
+  #       sub: 'xen-44'
+  #     - name: 'virt'
+  #       sub: 'xen-46'
+  #     - name: 'virt'
+  #       sub: 'xen-48'
+  #     - name: 'virt'
+  #       sub: 'xen'
+  - releasever: '7.1.1503'
+    basearch: 'x86_64'
+    repo:
+      - name: 'cloud'
+        sub: 'openstack-kilo'
+      - name: 'cloud'
+        sub: 'openstack-liberty'
+      - name: 'sclo'
+        sub: 'rh'
+      - name: 'sclo'
+        sub: 'sclo'
+      - name: 'storage'
+        sub: 'gluster-3.6'
+      - name: 'storage'
+        sub: 'gluster-3.7'
+      - name: 'virt'
+        sub: 'kvm-common'
+      - name: 'virt'
+        sub: 'ovirt-3.5'
+      - name: 'virt'
+        sub: 'ovirt-3.6'
+      - name: 'virt'
+        sub: 'xen'
+  # - releasever: '7.2.1511'
+  #   basearch: 'x86_64'
+  #   repo:
+  #     - name: 'atomic'
+  #       sub: 'adb'
+  #     - name: 'cloud'
+  #       sub: 'openstack-kilo'
+  #     - name: 'cloud'
+  #       sub: 'openstack-liberty'
+  #     - name: 'cloud'
+  #       sub: 'openstack-mitaka'
+  #     - name: 'cloud'
+  #       sub: 'openstack-newton'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin'
+  #     - name: 'sclo'
+  #       sub: 'rh'
+  #     - name: 'sclo'
+  #       sub: 'sclo'
+  #     - name: 'storage'
+  #       sub: 'ceph-hammer'
+  #     - name: 'storage'
+  #       sub: 'ceph-jewel'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.6'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.7'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.8'
+  #     - name: 'virt'
+  #       sub: 'kvm-common'
+  #     - name: 'virt'
+  #       sub: 'ovirt-3.5'
+  #     - name: 'virt'
+  #       sub: 'ovirt-3.6'
+  #     - name: 'virt'
+  #       sub: 'ovirt-4.0'
+  #     - name: 'virt'
+  #       sub: 'xen-46'
+  #     - name: 'virt'
+  #       sub: 'xen'
+  # - releasever: '7.3.1611'
+  #   basearch: 'x86_64'
+  #   repo:
+  #     - name: 'atomic'
+  #       sub: 'adb'
+  #     - name: 'cloud'
+  #       sub: 'openstack-kilo'
+  #     - name: 'cloud'
+  #       sub: 'openstack-liberty'
+  #     - name: 'cloud'
+  #       sub: 'openstack-mitaka'
+  #     - name: 'cloud'
+  #       sub: 'openstack-newton'
+  #     - name: 'cloud'
+  #       sub: 'openstack-ocata'
+  #     - name: 'cloud'
+  #       sub: 'openstack-pike'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin13'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin14'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin15'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin36'
+  #     - name: 'sclo'
+  #       sub: 'rh'
+  #     - name: 'sclo'
+  #       sub: 'sclo'
+  #     - name: 'storage'
+  #       sub: 'ceph-hammer'
+  #     - name: 'storage'
+  #       sub: 'ceph-jewel'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.6'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.7'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.8'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.9'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.10'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.12'
+  #     - name: 'virt'
+  #       sub: 'kvm-common'
+  #     - name: 'virt'
+  #       sub: 'libvirt-latest'
+  #     - name: 'virt'
+  #       sub: 'ovirt-3.5'
+  #     - name: 'virt'
+  #       sub: 'ovirt-3.6'
+  #     - name: 'virt'
+  #       sub: 'ovirt-4.0'
+  #     - name: 'virt'
+  #       sub: 'ovirt-4.1'
+  #     - name: 'virt'
+  #       sub: 'xen-46'
+  #     - name: 'virt'
+  #       sub: 'xen'
+  # - releasever: '7.4.1708'
+  #   basearch: 'x86_64'
+  #   repo:
+  #     - name: 'atomic'
+  #       sub: 'adb'
+  #     - name: 'cloud'
+  #       sub: 'openstack-newton'
+  #     - name: 'cloud'
+  #       sub: 'openstack-ocata'
+  #     - name: 'cloud'
+  #       sub: 'openstack-pike'
+  #     - name: 'cloud'
+  #       sub: 'openstack-queens'
+  #     - name: 'configmanagement'
+  #       sub: 'yum4'
+  #     - name: 'nfv'
+  #       sub: 'fdio'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin13'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin14'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin15'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin36'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin37'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin38'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin39'
+  #     - name: 'sclo'
+  #       sub: 'rh'
+  #     - name: 'sclo'
+  #       sub: 'sclo'
+  #     - name: 'storage'
+  #       sub: 'ceph-hammer'
+  #     - name: 'storage'
+  #       sub: 'ceph-jewel'
+  #     - name: 'storage'
+  #       sub: 'ceph-luminous'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.6'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.7'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.8'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.9'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.10'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.12'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.13'
+  #     - name: 'storage'
+  #       sub: 'gluster-4.0'
+  #     - name: 'virt'
+  #       sub: 'kubernetes19'
+  #     - name: 'virt'
+  #       sub: 'kubernetes110'
+  #     - name: 'virt'
+  #       sub: 'kvm-common'
+  #     - name: 'virt'
+  #       sub: 'libvirt-latest'
+  #     - name: 'virt'
+  #       sub: 'ovirt-4.1'
+  #     - name: 'virt'
+  #       sub: 'ovirt-4.2'
+  #     - name: 'virt'
+  #       sub: 'xen-46'
+  #     - name: 'virt'
+  #       sub: 'xen-48'
+  #     - name: 'virt'
+  #       sub: 'xen'
+  # - releasever: '7.5.1804'
+  #   basearch: 'x86_64'
+  #   repo:
+  #     - name: 'atomic'
+  #       sub: 'adb'
+  #     - name: 'cloud'
+  #       sub: 'openstack-ocata'
+  #     - name: 'cloud'
+  #       sub: 'openstack-pike'
+  #     - name: 'cloud'
+  #       sub: 'openstack-queens'
+  #     - name: 'cloud'
+  #       sub: 'openstack-rocky'
+  #     - name: 'configmanagement'
+  #       sub: 'ansible26'
+  #     - name: 'configmanagement'
+  #       sub: 'yum4'
+  #     - name: 'nfv'
+  #       sub: 'fdio'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin13'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin14'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin15'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin36'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin37'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin38'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin39'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin310'
+  #     - name: 'paas'
+  #       sub: 'openshift-origin311'
+  #     - name: 'sclo'
+  #       sub: 'rh'
+  #     - name: 'sclo'
+  #       sub: 'sclo'
+  #     - name: 'storage'
+  #       sub: 'ceph-jewel'
+  #     - name: 'storage'
+  #       sub: 'ceph-luminous'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.10'
+  #     - name: 'storage'
+  #       sub: 'gluster-3.12'
+  #     - name: 'storage'
+  #       sub: 'gluster-4.0'
+  #     - name: 'storage'
+  #       sub: 'gluster-4.1'
+  #     - name: 'storage'
+  #       sub: 'gluster-5'
+  #     - name: 'virt'
+  #       sub: 'azure'
+  #     - name: 'virt'
+  #       sub: 'kubernetes19'
+  #     - name: 'virt'
+  #       sub: 'kubernetes110'
+  #     - name: 'virt'
+  #       sub: 'kvm-common'
+  #     - name: 'virt'
+  #       sub: 'libvirt-latest'
+  #     - name: 'virt'
+  #       sub: 'ovirt-4.2'
+  #     - name: 'virt'
+  #       sub: 'xen-46'
+  #     - name: 'virt'
+  #       sub: 'xen-48'
+  #     - name: 'virt'
+  #       sub: 'xen-410'
+  #     - name: 'virt'
+  #       sub: 'xen'
+
+epel_repotosync:
+  # - { releasever: '4', basearch: 'x86_64', repo: 'epel'}
+  # - { releasever: '5', basearch: 'x86_64', repo: 'epel'}
+  - { releasever: '6', basearch: 'x86_64', repo: 'epel'}
+  - { releasever: '7', basearch: 'x86_64', repo: 'epel'}
+
+pgdp_repotosync:
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '5Client', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '5Server', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '5.0', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '5.1', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '5.2', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '5.3', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '5.4', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '5.5', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '5.6', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '5.7', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '5.8', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '5.9', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '5.10', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '5.11', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '6Server', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '6Workstation', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '6.0', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '6.1', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '6.2', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '6.3', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '6.4', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '6.5', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '6.6', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '6.7', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '6.8', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '6.9', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '7Client', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '7Server', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '7Workstation', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '7.1', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '7.2', basearch: 'x86_64'}
+  # - { pgdg: '9.4', pgdgsh: '94', releasever: '7.3', basearch: 'x86_64'}
+  # - { pgdg: '9.5', pgdgsh: '95', releasever: '5Server', basearch: 'x86_64'}
+  # - { pgdg: '9.5', pgdgsh: '95', releasever: '5.8', basearch: 'x86_64'}
+  # - { pgdg: '9.5', pgdgsh: '95', releasever: '5.9', basearch: 'x86_64'}
+  # - { pgdg: '9.5', pgdgsh: '95', releasever: '5.10', basearch: 'x86_64'}
+  # - { pgdg: '9.5', pgdgsh: '95', releasever: '5.11', basearch: 'x86_64'}
+  - { pgdg: '9.5', pgdgsh: '95', releasever: '6Server', basearch: 'x86_64'}
+  - { pgdg: '9.5', pgdgsh: '95', releasever: '6Workstation', basearch: 'x86_64'}
+  # - { pgdg: '9.5', pgdgsh: '95', releasever: '6.0', basearch: 'x86_64'}
+  # - { pgdg: '9.5', pgdgsh: '95', releasever: '6.1', basearch: 'x86_64'}
+  # - { pgdg: '9.5', pgdgsh: '95', releasever: '6.2', basearch: 'x86_64'}
+  # - { pgdg: '9.5', pgdgsh: '95', releasever: '6.3', basearch: 'x86_64'}
+  # - { pgdg: '9.5', pgdgsh: '95', releasever: '6.4', basearch: 'x86_64'}
+  # - { pgdg: '9.5', pgdgsh: '95', releasever: '6.5', basearch: 'x86_64'}
+  # - { pgdg: '9.5', pgdgsh: '95', releasever: '6.6', basearch: 'x86_64'}
+  - { pgdg: '9.5', pgdgsh: '95', releasever: '6.7', basearch: 'x86_64'}
+  # - { pgdg: '9.5', pgdgsh: '95', releasever: '6.8', basearch: 'x86_64'}
+  # - { pgdg: '9.5', pgdgsh: '95', releasever: '6.9', basearch: 'x86_64'}
+  - { pgdg: '9.5', pgdgsh: '95', releasever: '7Client', basearch: 'x86_64'}
+  - { pgdg: '9.5', pgdgsh: '95', releasever: '7Server', basearch: 'x86_64'}
+  - { pgdg: '9.5', pgdgsh: '95', releasever: '7Workstation', basearch: 'x86_64'}
+  - { pgdg: '9.5', pgdgsh: '95', releasever: '7.1', basearch: 'x86_64'}
+  # - { pgdg: '9.5', pgdgsh: '95', releasever: '7.2', basearch: 'x86_64'}
+  # - { pgdg: '9.5', pgdgsh: '95', releasever: '7.3', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '6Server', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '6Workstation', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '6.0', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '6.1', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '6.2', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '6.3', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '6.4', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '6.5', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '6.6', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '6.7', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '6.8', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '6.9', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '7Client', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '7Server', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '7Workstation', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '7.1', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '7.2', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '7.3', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '7.4', basearch: 'x86_64'}
+  # - { pgdg: '9.6', pgdgsh: '96', releasever: '7.5', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '6Server', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '6Workstation', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '6.0', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '6.1', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '6.2', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '6.3', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '6.4', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '6.5', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '6.6', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '6.7', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '6.8', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '6.9', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '7Client', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '7Server', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '7Workstation', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '7.0', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '7.1', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '7.2', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '7.3', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '7.4', basearch: 'x86_64'}
+  # - { pgdg: '10', pgdgsh: '10', releasever: '7.5', basearch: 'x86_64'}
+  # - { pgdg: '11', pgdgsh: '11', releasever: '6Client', basearch: 'x86_64'}
+  # - { pgdg: '11', pgdgsh: '11', releasever: '6Server', basearch: 'x86_64'}
+  # - { pgdg: '11', pgdgsh: '11', releasever: '6Workstation', basearch: 'x86_64'}
+  # - { pgdg: '11', pgdgsh: '11', releasever: '6.6', basearch: 'x86_64'}
+  # - { pgdg: '11', pgdgsh: '11', releasever: '6.7', basearch: 'x86_64'}
+  # - { pgdg: '11', pgdgsh: '11', releasever: '6.8', basearch: 'x86_64'}
+  # - { pgdg: '11', pgdgsh: '11', releasever: '6.9', basearch: 'x86_64'}
+  # - { pgdg: '11', pgdgsh: '11', releasever: '7Client', basearch: 'x86_64'}
+  # - { pgdg: '11', pgdgsh: '11', releasever: '7Server', basearch: 'x86_64'}
+  # - { pgdg: '11', pgdgsh: '11', releasever: '7Workstation', basearch: 'x86_64'}
+  # - { pgdg: '11', pgdgsh: '11', releasever: '7.0', basearch: 'x86_64'}
+  # - { pgdg: '11', pgdgsh: '11', releasever: '7.1', basearch: 'x86_64'}
+  # - { pgdg: '11', pgdgsh: '11', releasever: '7.2', basearch: 'x86_64'}
+  # - { pgdg: '11', pgdgsh: '11', releasever: '7.3', basearch: 'x86_64'}
+  # - { pgdg: '11', pgdgsh: '11', releasever: '7.4', basearch: 'x86_64'}
+  # - { pgdg: '11', pgdgsh: '11', releasever: '7.5', basearch: 'x86_64'}
+
+remi_repotosync:
+  # - { releasever: '4', repo: '', basearch: 'x86_64'}
+  # - { releasever: '5', repo: '', basearch: 'x86_64'}
+  - { releasever: '6', repo: 'glpi91', basearch: 'x86_64'}
+  - { releasever: '6', repo: 'glpi92', basearch: 'x86_64'}
+  - { releasever: '6', repo: 'glpi93', basearch: 'x86_64'}
+  - { releasever: '6', repo: 'glpi94', basearch: 'x86_64'}
+  - { releasever: '6', repo: 'php54', basearch: 'x86_64'}
+  - { releasever: '6', repo: 'php70', basearch: 'x86_64'}
+  - { releasever: '6', repo: 'php71', basearch: 'x86_64'}
+  - { releasever: '6', repo: 'php72', basearch: 'x86_64'}
+  - { releasever: '6', repo: 'php73', basearch: 'x86_64'}
+  - { releasever: '6', repo: 'safe', basearch: 'x86_64'}
+  - { releasever: '6', repo: '', basearch: 'x86_64'}
+  - { releasever: '7', repo: 'glpi91', basearch: 'x86_64'}
+  - { releasever: '7', repo: 'glpi92', basearch: 'x86_64'}
+  - { releasever: '7', repo: 'glpi93', basearch: 'x86_64'}
+  - { releasever: '7', repo: 'glpi94', basearch: 'x86_64'}
+  - { releasever: '7', repo: 'php54', basearch: 'x86_64'}
+  - { releasever: '7', repo: 'php70', basearch: 'x86_64'}
+  - { releasever: '7', repo: 'php71', basearch: 'x86_64'}
+  - { releasever: '7', repo: 'php72', basearch: 'x86_64'}
+  - { releasever: '7', repo: 'php73', basearch: 'x86_64'}
+  - { releasever: '7', repo: 'safe', basearch: 'x86_64'}
+  - { releasever: '7', repo: '', basearch: 'x86_64'}
+
+ius_repotosync:
+  - { releasever: '6', repo: '', basearch: 'x86_64'}
+  - { releasever: '6', repo: 'archive', basearch: 'x86_64'}
+  - { releasever: '6', repo: 'dev', basearch: 'x86_64'}
+  - { releasever: '6', repo: 'testing', basearch: 'x86_64'}
+  - { releasever: '7', repo: '', basearch: 'x86_64'}
+  - { releasever: '7', repo: 'archive', basearch: 'x86_64'}
+  - { releasever: '7', repo: 'dev', basearch: 'x86_64'}
+  - { releasever: '7', repo: 'testing', basearch: 'x86_64'}
+
+#LL::NG stable and oldstable requires at least Red Hat/CentOS 7
+lemonldap_repotosync:
+  - { releasever: '7', repo: 'oldstable', extra: 'OK'}
+  - { releasever: '7', repo: 'stable', extra: 'OK'}
+
+
+logdir: /var/log

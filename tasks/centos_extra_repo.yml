@@ -1,0 +1,19 @@
+---
+- blockinfile:
+    path: "/etc/yum.repos.d/centos_{{ item.releasever }}_{{ item.basearch }}.repo"
+    block: |
+      [{{ vre.name }}-{{ vre.sub }}-centos-{{ item.releasever }}]
+      name=CentOS-{{ item.releasever }} - {{ vre.name }}-{{ vre.sub }}
+      baseurl=http://vault.centos.org/{{ item.releasever }}/{{ vre.name }}/{{ item.basearch }}/{{ vre.sub }}
+      gpgcheck=1
+      enabled=1
+      gpgkey=http://vault.centos.org/{{ item.releasever }}/os/{{ item.basearch }}/RPM-GPG-KEY-centos{{ item.releasever.split('.')[0] }}
+    marker: ""
+    marker_begin : ""
+    marker_end: ""
+  become: yes
+  become_method: sudo
+  with_items: "{{ item.repo }}"
+  loop_control:
+    label: "For Centos {{ item.releasever }} Extra repo => {{ vre.name }}-{{ vre.sub }}"
+    loop_var: vre

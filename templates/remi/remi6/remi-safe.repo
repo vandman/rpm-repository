@@ -1,0 +1,19 @@
+# This repository is safe to use with RHEL/CentOS base repository
+# it only provides additional packages for the PHP stack
+# all dependencies are in base repository or in EPEL
+
+[remi-centos-{{ item.releasever }}-safe]
+name=Safe Remi's RPM repository for Enterprise Linux {{ item.releasever }} - {{ item.basearch }}
+baseurl=http://rpms.remirepo.net/enterprise/{{ item.releasever }}/safe/{{ item.basearch }}/
+#mirrorlist=https://rpms.remirepo.net/enterprise/{{ item.releasever }}/safe/httpsmirror
+#mirrorlist=http://cdn.remirepo.net/enterprise/{{ item.releasever }}/safe/mirror
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+
+[remi-centos-{{ item.releasever }}-safe-debuginfo]
+name=Remi's RPM repository for Enterprise Linux {{ item.releasever }} - {{ item.basearch }} - debuginfo
+baseurl=http://rpms.remirepo.net/enterprise/{{ item.releasever }}/debug-remi/{{ item.basearch }}/
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi

@@ -1,0 +1,70 @@
+# Repository: http://rpms.remirepo.net/
+# Blog:       http://blog.remirepo.net/
+# Forum:      http://forum.remirepo.net/
+
+[remi-centos-{{ item.releasever }}]
+name=Remi's RPM repository for Enterprise Linux {{ item.releasever }} - {{ item.basearch }}
+baseurl=http://rpms.remirepo.net/enterprise/{{ item.releasever }}/remi/{{ item.basearch }}/
+#mirrorlist=https://rpms.remirepo.net/enterprise/{{ item.releasever }}/remi/httpsmirror
+#mirrorlist=http://cdn.remirepo.net/enterprise/{{ item.releasever }}/remi/mirror
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+
+[remi-centos-{{ item.releasever }}-php55]
+name=Remi's PHP 5.5 RPM repository for Enterprise Linux {{ item.releasever }} - {{ item.basearch }}
+baseurl=http://rpms.remirepo.net/enterprise/{{ item.releasever }}/php55/{{ item.basearch }}/
+#mirrorlist=https://rpms.remirepo.net/enterprise/{{ item.releasever }}/php55/httpsmirror
+#mirrorlist=http://cdn.remirepo.net/enterprise/{{ item.releasever }}/php55/mirror
+# NOTICE: common dependencies are in "remi-safe"
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+
+[remi-centos-{{ item.releasever }}-php56]
+name=Remi's PHP 5.6 RPM repository for Enterprise Linux {{ item.releasever }} - {{ item.basearch }}
+baseurl=http://rpms.remirepo.net/enterprise/{{ item.releasever }}/php56/{{ item.basearch }}/
+#mirrorlist=https://rpms.remirepo.net/enterprise/{{ item.releasever }}/php56/httpsmirror
+#mirrorlist=http://cdn.remirepo.net/enterprise/{{ item.releasever }}/php56/mirror
+# NOTICE: common dependencies are in "remi-safe"
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+
+[remi-centos-{{ item.releasever }}-test]
+name=Remi's test RPM repository for Enterprise Linux {{ item.releasever }} - {{ item.basearch }}
+baseurl=http://rpms.remirepo.net/enterprise/{{ item.releasever }}/test/{{ item.basearch }}/
+#mirrorlist=https://rpms.remirepo.net/enterprise/{{ item.releasever }}/test/mirror
+#mirrorlist=http://cdn.remirepo.net/enterprise/{{ item.releasever }}/test/mirror
+# WARNING: If you enable this repository, you must also enable "remi"
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+
+[remi-centos-{{ item.releasever }}-debuginfo]
+name=Remi's RPM repository for Enterprise Linux {{ item.releasever }} - {{ item.basearch }} - debuginfo
+baseurl=http://rpms.remirepo.net/enterprise/{{ item.releasever }}/debug-remi/{{ item.basearch }}/
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+
+[remi-centos-{{ item.releasever }}-php55-debuginfo]
+name=Remi's PHP 5.5 RPM repository for Enterprise Linux {{ item.releasever }} - {{ item.basearch }} - debuginfo
+baseurl=http://rpms.remirepo.net/enterprise/{{ item.releasever }}/debug-php55/{{ item.basearch }}/
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+
+[remi-centos-{{ item.releasever }}-php56-debuginfo]
+name=Remi's PHP 5.6 RPM repository for Enterprise Linux {{ item.releasever }} - {{ item.basearch }} - debuginfo
+baseurl=http://rpms.remirepo.net/enterprise/{{ item.releasever }}/debug-php56/{{ item.basearch }}/
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+
+[remi-centos-{{ item.releasever }}-test-debuginfo]
+name=Remi's test RPM repository for Enterprise Linux {{ item.releasever }} - {{ item.basearch }} - debuginfo
+baseurl=http://rpms.remirepo.net/enterprise/{{ item.releasever }}/debug-test/{{ item.basearch }}/
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi

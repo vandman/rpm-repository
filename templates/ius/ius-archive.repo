@@ -1,0 +1,26 @@
+[ius-centos{{ item.releasever }}-archive]
+name=IUS Community Packages for Enterprise Linux {{ item.releasever }} - {{ item.basearch }} - Archive
+#baseurl=https://dl.iuscommunity.org/pub/ius/archive/CentOS/{{ item.releasever }}/{{ item.basearch }}
+mirrorlist=https://mirrors.iuscommunity.org/mirrorlist?repo=ius-centos{{ item.releasever }}-archive&arch={{ item.basearch }}&protocol=http
+failovermethod=priority
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ius
+
+[ius-centos{{ item.releasever }}-archive-debuginfo]
+name=IUS Community Packages for Enterprise Linux {{ item.releasever }} - {{ item.basearch }} - Archive Debug
+#baseurl=https://dl.iuscommunity.org/pub/ius/archive/CentOS/{{ item.releasever }}/{{ item.basearch }}/debuginfo
+mirrorlist=https://mirrors.iuscommunity.org/mirrorlist?repo=ius-centos{{ item.releasever }}-archive-debuginfo&arch={{ item.basearch }}&protocol=http
+failovermethod=priority
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ius
+
+[ius-centos{{ item.releasever }}-archive-source]
+name=IUS Community Packages for Enterprise Linux {{ item.releasever }} - {{ item.basearch }} - Archive Source
+#baseurl=https://dl.iuscommunity.org/pub/ius/archive/CentOS/{{ item.releasever }}/SRPMS
+mirrorlist=https://mirrors.iuscommunity.org/mirrorlist?repo=ius-centos{{ item.releasever }}-archive-source&arch=source&protocol=http
+failovermethod=priority
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ius

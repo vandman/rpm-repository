@@ -1,0 +1,26 @@
+[ius-centos{{ item.releasever }}-dev]
+name=IUS Community Packages for Enterprise Linux {{ item.releasever }} - {{ item.basearch }} - Dev
+#baseurl=https://dl.iuscommunity.org/pub/ius/development/CentOS/{{ item.releasever }}/{{ item.basearch }}
+mirrorlist=https://mirrors.iuscommunity.org/mirrorlist?repo=ius-centos{{ item.releasever }}-dev&arch={{ item.basearch }}&protocol=http
+failovermethod=priority
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ius
+
+[ius-centos{{ item.releasever }}-dev-debuginfo]
+name=IUS Community Packages for Enterprise Linux {{ item.releasever }} - {{ item.basearch }} - Dev Debug Info
+#baseurl=https://dl.iuscommunity.org/pub/ius/development/CentOS/{{ item.releasever }}/{{ item.basearch }}/debuginfo
+mirrorlist=https://mirrors.iuscommunity.org/mirrorlist?repo=ius-centos{{ item.releasever }}-dev-debuginfo&arch={{ item.basearch }}&protocol=http
+failovermethod=priority
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ius
+
+[ius-centos{{ item.releasever }}-dev-source]
+name=IUS Community Packages for Enterprise Linux {{ item.releasever }} - {{ item.basearch }} - Dev Source
+#baseurl=https://dl.iuscommunity.org/pub/ius/development/CentOS/{{ item.releasever }}/SRPMS
+mirrorlist=https://mirrors.iuscommunity.org/mirrorlist?repo=ius-centos{{ item.releasever }}-dev-source&arch=source&protocol=http
+failovermethod=priority
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ius

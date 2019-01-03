@@ -1,0 +1,21 @@
+[pgdg{{ item.pgdg}}-centos-{{ item.releasever}}]
+name=PostgreSQL {{ item.pgdg}} {{ item.releasever}} - {{ item.basearch}}
+baseurl=https://download.postgresql.org/pub/repos/yum/{{ item.pgdg}}/redhat/rhel-{{ item.releasever}}-{{ item.basearch}}
+enabled=1
+gpgcheck=1
+gpgkey=https://download.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-{{ item.pgdgsh}}
+
+[pgdg{{ item.pgdg}}-centos-{{ item.releasever}}-source]
+name=PostgreSQL {{ item.pgdg}} {{ item.releasever}} - {{ item.basearch}} - Source
+failovermethod=priority
+baseurl=https://download.postgresql.org/pub/repos/yum/srpms/{{ item.pgdg}}/redhat/rhel-{{ item.releasever}}-{{ item.basearch}}
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-{{ item.pgdgsh}}
+
+[pgdg{{ item.pgdg}}-centos-{{ item.releasever}}-updates-testing]
+name=PostgreSQL {{ item.pgdg}} {{ item.releasever}} - {{ item.basearch}} - Updates Testing
+baseurl=https://download.postgresql.org/pub/repos/yum/testing/{{ item.pgdg}}/redhat/rhel-{{ item.releasever}}-{{ item.basearch}}
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-{{ item.pgdgsh}}

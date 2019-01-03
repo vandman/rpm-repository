@@ -1,0 +1,53 @@
+[epel-centos-{{ item.releasever }}]
+name=Extra Packages for Enterprise Linux {{ item.releasever }} - {{ item.basearch }}
+#baseurl=http://download.fedoraproject.org/pub/epel/{{ item.releasever }}/{{ item.basearch }}
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-{{ item.releasever }}&arch={{ item.basearch }}
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ item.releasever }}
+
+[epel-debuginfo-centos-{{ item.releasever }}]
+name=Extra Packages for Enterprise Linux {{ item.releasever }} - {{ item.basearch }} - Debug
+#baseurl=http://download.fedoraproject.org/pub/epel/{{ item.releasever }}/{{ item.basearch }}/debug
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-{{ item.releasever }}&arch={{ item.basearch }}
+failovermethod=priority
+enabled=1
+gpgkey=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ item.releasever }}
+gpgcheck=1
+
+[epel-source-centos-{{ item.releasever }}]
+name=Extra Packages for Enterprise Linux {{ item.releasever }} - {{ item.basearch }} - Source
+#baseurl=http://download.fedoraproject.org/pub/epel/{{ item.releasever }}/SRPMS
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-source-{{ item.releasever }}&arch={{ item.basearch }}
+failovermethod=priority
+enabled=1
+gpgkey=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ item.releasever }}
+gpgcheck=1
+
+[epel-testing-centos-{{ item.releasever }}]
+name=Extra Packages for Enterprise Linux {{ item.releasever }} - Testing - {{ item.basearch }}
+#baseurl=http://download.fedoraproject.org/pub/epel/testing/{{ item.releasever }}/{{ item.basearch }}
+metalink=https://mirrors.fedoraproject.org/metalink?repo=testing-epel{{ item.releasever }}&arch={{ item.basearch }}
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ item.releasever }}
+
+[epel-testing-debuginfo-centos-{{ item.releasever }}]
+name=Extra Packages for Enterprise Linux {{ item.releasever }} - Testing - {{ item.basearch }} - Debug
+#baseurl=http://download.fedoraproject.org/pub/epel/testing/{{ item.releasever }}/{{ item.basearch }}/debug
+metalink=https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel{{ item.releasever }}&arch={{ item.basearch }}
+failovermethod=priority
+enabled=1
+gpgkey=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ item.releasever }}
+gpgcheck=1
+
+[epel-testing-source-centos-{{ item.releasever }}]
+name=Extra Packages for Enterprise Linux {{ item.releasever }} - Testing - {{ item.basearch }} - Source
+#baseurl=http://download.fedoraproject.org/pub/epel/testing/{{ item.releasever }}/SRPMS
+metalink=https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel{{ item.releasever }}&arch={{ item.basearch }}
+failovermethod=priority
+enabled=1
+gpgkey=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ item.releasever }}
+gpgcheck=1

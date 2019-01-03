@@ -1,0 +1,34 @@
+# This repository only provides PHP 7.0 and its extensions
+# NOTICE: common dependencies are in "remi-safe"
+
+[remi-centos-{{ item.releasever }}-php70]
+name=Remi's PHP 7.0 RPM repository for Enterprise Linux {{ item.releasever }} - {{ item.basearch }}
+baseurl=http://rpms.remirepo.net/enterprise/{{ item.releasever }}/php70/{{ item.basearch }}/
+#mirrorlist=https://rpms.remirepo.net/enterprise/{{ item.releasever }}/php70/httpsmirror
+#mirrorlist=http://cdn.remirepo.net/enterprise/{{ item.releasever }}/php70/mirror
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+
+[remi-centos-{{ item.releasever }}-php70-debuginfo]
+name=Remi's PHP 7.0 RPM repository for Enterprise Linux {{ item.releasever }} - {{ item.basearch }} - debuginfo
+baseurl=http://rpms.remirepo.net/enterprise/{{ item.releasever }}/debug-php70/{{ item.basearch }}/
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+
+[remi-centos-{{ item.releasever }}-php70-test]
+name=Remi's PHP 7.0 test RPM repository for Enterprise Linux {{ item.releasever }} - {{ item.basearch }}
+baseurl=http://rpms.remirepo.net/enterprise/{{ item.releasever }}/test70/{{ item.basearch }}/
+#mirrorlist=https://rpms.remirepo.net/enterprise/{{ item.releasever }}/test70/httpsmirror
+#mirrorlist=http://cdn.remirepo.net/enterprise/{{ item.releasever }}/test70/mirror
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+
+[remi-centos-{{ item.releasever }}-php70-test-debuginfo]
+name=Remi's PHP 7.0 test RPM repository for Enterprise Linux {{ item.releasever }} - {{ item.basearch }} - debuginfo
+baseurl=http://rpms.remirepo.net/enterprise/{{ item.releasever }}/debug-test70/{{ item.basearch }}/
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi

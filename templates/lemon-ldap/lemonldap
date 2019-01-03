@@ -1,0 +1,6 @@
+[lemonldap-ng-{{ item.repo}}-centos-{{ item.releasever }}]
+name=LemonLDAP::NG {{ item.repo}} packages centos {{ item.releasever }}
+baseurl=https://lemonldap-ng.org/redhat/{{ item.repo}}/{{ item.releasever }}/noarch
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-LemonLDAP

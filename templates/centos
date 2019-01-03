@@ -1,0 +1,29 @@
+[main]
+#cachedir=/var/cache/yum
+cachedir={{ cachedir }}/{{ item.basearch }}/{{ item.releasever }}
+debuglevel=2
+#logfile=/var/log/yum.log
+logfile={{ logdir }}/yum_centos{{ item.releasever }}_{{ item.basearch }}.log
+pkgpolicy=newest
+distroverpkg=centos-release
+tolerant=1
+exactarch=1
+retries=20
+obsoletes=1
+gpgcheck=1
+
+[base-centos-{{ item.releasever }}]
+name=CentOS-{{ item.releasever }} - Base
+baseurl=http://vault.centos.org/{{ item.releasever }}/os/{{ item.basearch }}
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centos{{ item.releasever }}
+
+{% for addon in item.repo %}
+[{{ addon }}-centos-{{ item.releasever }}]
+name=CentOS-{{ item.releasever }} - {{ addon }}
+baseurl=http://vault.centos.org/{{ item.releasever }}/{{ addon }}/{{ item.basearch }}
+gpgcheck=1
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centos{{ item.releasever }}
+
+{% endfor %}
