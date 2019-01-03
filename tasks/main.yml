@@ -5,6 +5,7 @@
   package:
     name: ['yum', 'yum-utils']
     state: present
+  retries: 2
   become: yes
   become_method: sudo
   when: ansible_os_family == 'RedHat'
@@ -13,6 +14,7 @@
   apt:
     name: ['yum', 'yum-utils']
     state: present
+  retries: 2
   become: yes
   become_method: sudo
   when: ansible_os_family == 'Debian'
@@ -89,12 +91,12 @@
   become_method: sudo
   with_items: "{{ pgdp_repotosync }}"
   loop_control:
-    label: "Key for PGDG {{item.pgdg}} CentOS {{ item.releasever }} {{ item.basearch }}"
+    label: "Key for PGDG {{ item.pgdg }} CentOS {{ item.releasever }} {{ item.basearch }}"
 
 - name: "Create CentOS PGDG yum file"
   template:
     src: "pgdg/centos"
-    dest: "/etc/yum.repos.d/pgdg_{{item.pgdg}}_centos_{{ item.releasever }}_{{ item.basearch }}.repo"
+    dest: "/etc/yum.repos.d/pgdg_{{ item.pgdg }}_centos_{{ item.releasever }}_{{ item.basearch }}.repo"
     owner: root
     group: root
     mode: 0644
